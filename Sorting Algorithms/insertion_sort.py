@@ -72,6 +72,8 @@ def dec_insert_sort(arr):
     return arr
 
 
+# Driver code to test above
+
 list_a = [5, 2, 4, 6, 1, 3]
 
 print(insert_sort(list_a))
