@@ -1,11 +1,12 @@
 """
 File Input and Output
 
-Python program to ask the user to type in 10 integer values, calculate the average and standard deviation of the values,
-write the 10 values and the average and standard deviation to a file (called Results.txt).
+Python program to ask the user to type in 10 integer values, calculate the average and standard deviation of the values.
+Then, write the values, average and standard deviation to a file (called Result.txt).
 """
 
 from statistics import stdev
+import os
 
 
 def avg_and_st_dev(arr):
@@ -26,10 +27,10 @@ def write_file(arr, res):
     Function to create the file "Results.txt" and write 10 values, the average and standard deviation to a file.
     :param arr: List of integers (values provided by the user)
     :param res: List of two elements: [0] - average | [1] - standard deviation
-    :return: No return value
     """
+
     try:
-        with open('D:/Results.txt', 'w') as f:
+        with open('Result.txt', 'w') as f:
             for i in arr:
                 f.write(str(i))
                 f.write('\n')
@@ -39,19 +40,23 @@ def write_file(arr, res):
             f.write(' Standard Dev: ')
             f.write(str(res[1]))
 
-            print('File created')
+            directory_path = os.getcwd()
+            print('File created in the directory:', directory_path)
     except IOError as e:
         print('\nSomething went wrong -->', e)
 
 
 def main():
     arr_int = []
-    print('\nPlease provide 10 integers:')
+
     try:
+        print('\nPlease provide 10 integers:')
         for i in range(10):
             arr_int.append(int(input()))
+
         res = avg_and_st_dev(arr_int)
         write_file(arr_int, res)
+
     except ValueError as e:
         print('\nPlease provide integers only to avoid the following error:', e)
         main()
