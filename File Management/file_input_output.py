@@ -41,7 +41,7 @@ def write_file(arr, res):
             f.write(str(res[1]))
 
             directory_path = os.getcwd()
-            print('File created in the directory:', directory_path)
+            print('File "Result.txt" created in the directory:', directory_path)
     except IOError as e:
         print('\nSomething went wrong -->', e)
 
